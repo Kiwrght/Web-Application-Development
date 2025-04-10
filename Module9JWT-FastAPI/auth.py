@@ -23,7 +23,8 @@ def create_access_token(data: dict, expires_delta: timedelta = timedelta(minutes
 def decode_jwt_token(token: str) -> TokenData | None:
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        username: str = payload.get("user_name")
+        print(payload)
+        username: str = payload.get("username")
         exp: int = payload.get("exp")
         return TokenData(username=username, exp_datetime=datetime.fromtimestamp(exp))
     except jwt.InvalidTokenError:
