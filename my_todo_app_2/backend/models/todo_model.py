@@ -2,8 +2,8 @@ from pydantic import BaseModel
 from beanie import Document
 
 
+## take out ID because it is automatically made in mongoDB
 class Todo(Document):
-    id: int
     title: str
     description: str
 
